@@ -1,5 +1,6 @@
 // Initialize butotn with users's prefered color
 let changeColor = document.getElementById("changeColor");
+let statementEntry = document.getElementById("statementEntry").value
 
 chrome.storage.sync.get("color", ({ color }) => {
   changeColor.style.backgroundColor = color;

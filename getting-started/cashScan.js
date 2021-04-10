@@ -87,17 +87,31 @@ function findInput(){
         }
     }
 }
-console.log(numArr)
-document.getElementById('resultdisplay').innerHTML = `${sum}`
+
+
+// Create our number formatter.
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+
+  sum = formatter.format(sum);
+
+  let newDiv = document.createElement('div').innerHTML = `${userInput} ${sum}`
+  document.getElementById('resultdisplay').innerHTML = `${userInput} ${sum}`
+// document.getElementById('resultdisplay').innerHTML = `${userInput} ${sum}`
 // return sum
 }
 
+
+  
  function highlighted(){
     
-    document.getElementById("statementEntry").value = window.getSelection().toString();
+    document.getElementById("statementEntry").style.value = window.getSelection().toString();
  }
 let buttonClick = document.getElementById('Submit')
 
+buttonClick.addEventListener('click', highlighted);
 buttonClick.addEventListener('click', findInput);
 
 // findInput(document.getElementById('statementEntry').value)
